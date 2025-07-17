@@ -32,7 +32,8 @@ jobs:
           run: npm test
           
         - name: Archive Test Result
-          uses: actions/upload-artifact@v4
+          uses: actions/upload-artifact@v4i
+          if: success() || failure()
           with:
             name: Mocha-Test-Result
             path: test-results.xml
